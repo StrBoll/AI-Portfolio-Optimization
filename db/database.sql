@@ -8,9 +8,10 @@ CREATE TABLE users (
 CREATE TABLE market_data (
     market_data_id SERIAL PRIMARY KEY,
     name_of_asset VARCHAR(100) NOT NULL,
+    asset_ticker VARCHAR(255) NOT NULL,
     price_of_asset DECIMAL(10,2) NOT NULL,
     market_cap DECIMAL(20, 2),
-    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    market_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 
 
 );
@@ -18,7 +19,9 @@ CREATE TABLE market_data (
 CREATE TABLE portfolio_data (
     allocation_id SERIAL PRIMARY KEY,
     user_id INTEGER REFERENCES user(userID) ON DELETE CASCADE,
+    asset_ticker VARCHAR(255) NOT NULL,
     percentage_of_alloc DECIMAL (5,2),
+    time_of_optimization TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE transactions (
