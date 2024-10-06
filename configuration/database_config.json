@@ -1,0 +1,7 @@
+{
+    "dbname": "database",
+    "user": "phillipboll3",
+    "password": "LOL Not uploading that to Github",
+    "host": "localhost",
+    "port": 5432
+}
