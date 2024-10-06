@@ -16,6 +16,19 @@ CREATE TABLE market_data (
 
 );
 
+
+CREATE TABLE user_preferences (
+
+    preference_id SERIAL PRIMARY KEY.
+    user_id INTEGER REFERENCES users(userID) ON DELETE CASCADE, 
+    risk_tolerance VARCHAR(50) NOT NULL,
+    investment_horizon INTEGER NOT NULL,
+    asset_preferences VARCHAR(255),
+    create_when TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+
+
+);
+
 CREATE TABLE portfolio_data (
     allocation_id SERIAL PRIMARY KEY,
     user_id INTEGER REFERENCES user(userID) ON DELETE CASCADE,
